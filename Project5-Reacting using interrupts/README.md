@@ -22,7 +22,7 @@ for (int i = 0; i< 10000; i++){
 }
 ```
 - test if lighting led still works. Why or why not?
-answer here: __________
+answer here: It doesnt work, but if I make the number lower it works. This is because when its a big number it runs for a lot of times and it spends its time on printing instead of actually checking the button, updating the led and repeating the loop.
 
 ## Use interrupt to light led
 - Add code to create an interrupt pin (why can't it be the button pin?). Use a variable for this.
