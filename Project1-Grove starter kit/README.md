@@ -26,7 +26,7 @@
  - push the file to your repo.
 
 ## Exercise
-- pressure value: 
-- led blinks when:
-- led is constant when:
-- buzzer plays when: 
+- pressure value: 100445.00 Pa
+- led blinks when: I press on the button
+- led is constant when: I'm in the option menue
+- buzzer plays when: I enter the option menue with long press on the button
