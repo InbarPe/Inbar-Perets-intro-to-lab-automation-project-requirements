@@ -28,5 +28,5 @@
 ## Exercise
 - pressure value: 100445.00 Pa
 - led blinks when: I press on the button
-- led is constant when: I'm in the option menue
-- buzzer plays when: I enter the option menue with long press on the button
+- led is constant when: I'm in the option menu
+- buzzer plays when: I enter the option menu with long press on the button
