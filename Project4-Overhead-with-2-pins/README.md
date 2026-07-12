@@ -26,7 +26,7 @@ enter the delay in usec here:  4.3 us (0.8 us longer than previous delay)
 ## Exercise 3
 - Use chatGPT or similar to find how to write simultaneously to both pins. Measure the delay between the pins now. 
 - Paste a screenshot below.
-![alt text](2LedsDelayMeasurment3.png)
+![alt text](2LedsDelayMeasurment3-1.png)
 - Comparison of AI changes if any:
 
 ## Git
