@@ -3,7 +3,7 @@
 ## Goals
 1. Understand the concept of latency and its importance in real-time systems.
 2. Measure the latency (reaction time) of yourself using the Arduino board and log the data into a file
-3. Graphing and logging data in realtime.
+3. Graphing and logging data in realtime. d
 
 ## Requirements
 1. Develop an Arduino sketch that uses a button to trigger the turning on of an LED for a random amount of time between 500 and 3000 milliseconds. The user should hold the button pressed until the LED turns off. The program than finds the time it took the user to react to the LED turning off in ms and send this value to the computer. Use MsTimer2 library.
