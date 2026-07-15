@@ -5,6 +5,7 @@
 #include <Servo.h>
 #include <Wire.h>
 #include "Arduino_SensorKit.h"
+#define BUZZER 5
 
 const int servoPin = 3;
 const int fanPin = 7;
@@ -13,6 +14,9 @@ const int oledWidth = 128;
 const int oledHeight = 64;
 const int servoMinAngle = 20;
 const int servoMaxAngle = 160;
+// If the angle goes below 45 or above 135, the fan will safety-stop.
+const int fanMinSafeAngle = 85; 
+const int fanMaxSafeAngle = 105;
 const int accelSamples = 10; // Reduced samples slightly to make the code more responsive
 const int angleSensitivity = 30;
 const unsigned long readDelayMs = 50;
@@ -39,6 +43,7 @@ void setup() {
   pinMode(fanPin, OUTPUT);
   pinMode(buttonPin, INPUT_PULLUP);
   digitalWrite(fanPin, LOW);
+  pinMode(BUZZER, OUTPUT);
 
   Accelerometer.begin();
   myServo.attach(servoPin);
@@ -68,12 +73,23 @@ void loop() {
 
     myServo.write(servoAngle);
     currentServoAngle = servoAngle;
-    digitalWrite(fanPin, HIGH);
+    
+    // SAFETY CHECK: Only turn the fan on if the angle is within safe limits
+    if (servoAngle >= fanMinSafeAngle && servoAngle <= fanMaxSafeAngle) {
+      digitalWrite(fanPin, HIGH); 
+      noTone(BUZZER);
+    } else {
+      digitalWrite(fanPin, LOW); // Stop the fan because it's past the threshold
+      // Make buzzer sound
+      tone(BUZZER, 100);
+    }
+    
     printStatus(accelX, delta, servoAngle);
   } else {
     myServo.write(90);
     currentServoAngle = 90;
     digitalWrite(fanPin, LOW);
+    noTone(BUZZER);
   }
 
   // Update the display
