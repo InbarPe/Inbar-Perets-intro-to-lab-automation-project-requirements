@@ -1,7 +1,3 @@
-// Step 2: Servo angle controlled by an accelerometer input.
-// This sketch reads the accelerometer value and uses it to move the servo,
-// so the fan position changes based on sensor input.
-
 #include <Servo.h>
 #include <Wire.h>
 #include "Arduino_SensorKit.h"
@@ -14,7 +10,6 @@ const int oledWidth = 128;
 const int oledHeight = 64;
 const int servoMinAngle = 20;
 const int servoMaxAngle = 160;
-// If the angle goes below 45 or above 135, the fan will safety-stop.
 const int fanMinSafeAngle = 85; 
 const int fanMaxSafeAngle = 105;
 const int accelSamples = 10; // Reduced samples slightly to make the code more responsive
@@ -27,8 +22,6 @@ float accelCenterX = 0.0;
 bool systemRunning = false; // Strictly false at startup
 bool lastButtonState = HIGH;
 unsigned long lastButtonPressTime = 0;
-unsigned long lastDisplayUpdateTime = 0;
-bool oledReady = false; // Global flag to check if OLED is connected
 int currentServoAngle = 90;
 
 void setup() {
@@ -37,7 +30,7 @@ void setup() {
     ;
   }
 
-  Serial.println("Step 2: Accelerometer-controlled servo");
+  Serial.println("Accelerometer-controlled servo");
   Serial.println("Place the board flat and wait for calibration...");
 
   pinMode(fanPin, OUTPUT);
@@ -138,7 +131,6 @@ float readSmoothedAccelerometerX() {
   }
   return total / accelSamples;
 }
-
 
 void printStatus(float accelX, float delta, int servoAngle) {
   Serial.print("Accelerometer X = ");
