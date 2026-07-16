@@ -131,3 +131,7 @@ The heating pad draws far more current than USB can supply, which is exactly why
 8. If the PWM frequency were slow enough that the heating pad could fully heat up and cool down within a single on/off pulse, would this averaging approximation still hold?
 9. Why would powering the heating pad from the Arduino's own 5V USB supply be a bad idea, even at low duty cycle?
 
+### Where I got to
+I was able to have an Arduino code for reading the temprature using a sensor and print it while affecting the temprature with the power supply and the Arduino dimer. This is in: Project12-Final_Project_Part_2 -> TempReadAndChange -> TempReadAndChange.ino.
+In addition I wrote a code to check the Kp logig in: Project12-Final_Project_Part_2 -> LogicTest -> LogicTest.ino.
+
